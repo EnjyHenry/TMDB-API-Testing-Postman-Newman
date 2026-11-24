@@ -93,3 +93,14 @@ The `Now Playing` endpoint returned data outside the expected date range.
 - Handling dynamic data such as date ranges and pagination
 - Running a full collection with Newman and reading automated reports
 - Thinking about API testing end to end: from searching for data to performing real actions on it
+  ## Running with Jenkins
+
+The collection runs automatically through a Jenkins pipeline defined in the `Jenkinsfile`.
+
+Pipeline stages:
+1. Checkout the repository from GitHub
+2. Verify Newman is installed
+3. Run the Postman collection with Newman, using the environment file stored as a Jenkins credential
+4. Publish the HTML report as a build artifact
+
+The environment file (with the API token) is not stored in the repository.
